@@ -5,10 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Autoconocimiento y Desarrollo Personal</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            padding-bottom: 60px; /* Espacio para el footer */
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            margin-bottom: 40px; /* Margen para no tapar el botón */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        img.logo {
+            max-width: 200px; 
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
+        <img src="Imagen de WhatsApp 2024-09-26 a las 10.18.07_8f81c413.jpg" alt="Logo El Viaje del Autodescubrimiento" class="logo">
         <h1>El Viaje del Autodescubrimiento</h1>
         <nav>
             <ul>
@@ -49,13 +130,13 @@
         <h2>Contacta conmigo</h2>
         <form action="#" method="post">
             <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" required>
 
-            <label for="message">Mensaje:</label><br>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
 
             <input type="submit" value="Enviar">
         </form>
@@ -65,6 +146,25 @@
         <p>&copy; 2024 El Viaje del Autodescubrimiento. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+
+                if (name && email && message) {
+                    alert(`Gracias, ${name}. Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.`);
+                    form.reset();
+                } else {
+                    alert("Por favor, rellena todos los campos.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
